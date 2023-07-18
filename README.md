@@ -27,12 +27,17 @@ This readme contains the major steps to setup my Ubuntu Workstation. In the futu
 - APT packages
   git
   vim
-  devilspie2i && xdotool
+  brew
+  curl
+  zsh
 - Install vscode and sign-in with Github to sync all extensions/settings
 - Install Slack
   - Enable Dark Mode
   - Disable always show menu bar
 - Setup SSH keys for private Github/Gitlab company repos
+- Install ohmyzsh
+  - Install Antigen for zsh plugin manager
+- Add custom partial search history to ~/.inputrc
 
 4. Other Applications
 
