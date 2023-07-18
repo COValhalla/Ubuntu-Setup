@@ -45,6 +45,8 @@ This readme contains the major steps to setup my Ubuntu Workstation. In the futu
 - Spotify
 - Signal
 - Discord
+- Notion
+- Miro
   TODOs:
 
 - Terminal customization

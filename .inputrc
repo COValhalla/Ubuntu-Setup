@@ -1,0 +1,6 @@
+# File should be accessible at the following ~/.inputrc
+
+# Enable history search with arrow keys
+
+"\e[A": history-search-backward
+"\e[B": history-search-forward
