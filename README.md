@@ -15,6 +15,8 @@ This readme contains the major steps to setup my Ubuntu Workstation. In the futu
 - GIF Recording Software - Built in Gnome with ctrl+shift+alt+R
 - Modify keyboard shorcuts
   - Change "Move window one monitor to the left/right/up/down to Ctrl+Super+X
+- Modify "sudo visudo" to disable sudo password requirement
+  - %sudo ALL=(ALL) NOPASSWD: ALL
 
 # The below is only for X11, no wayland
 
@@ -30,6 +32,7 @@ This readme contains the major steps to setup my Ubuntu Workstation. In the futu
   brew
   curl
   zsh
+  python3-pip
 - Install vscode and sign-in with Github to sync all extensions/settings
 - Install Slack
   - Enable Dark Mode
@@ -38,6 +41,8 @@ This readme contains the major steps to setup my Ubuntu Workstation. In the futu
 - Install ohmyzsh
   - Install Antigen for zsh plugin manager
 - Add custom partial search history to ~/.inputrc
+- Instal pyenv for python management (python3 is pre-installed by default)
+  - Using update-alternatives, I symlinked `python` to work `sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1`
 
 4. Other Applications
 
@@ -47,6 +52,8 @@ This readme contains the major steps to setup my Ubuntu Workstation. In the futu
 - Discord
 - Notion
 - Miro
+- Asana
+- BalenaEtcher
   TODOs:
 
 - Terminal customization
