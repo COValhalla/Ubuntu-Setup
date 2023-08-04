@@ -17,6 +17,9 @@ This readme contains the major steps to setup my Ubuntu Workstation. In the futu
   - Change "Move window one monitor to the left/right/up/down to Ctrl+Super+X
 - Modify "sudo visudo" to disable sudo password requirement
   - %sudo ALL=(ALL) NOPASSWD: ALL
+- DOTFILES
+  - snap install of chezmoi
+  - https://github.com/COValhalla/dotfiles
 
 # The below is only for X11, no wayland
 
