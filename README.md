@@ -42,7 +42,6 @@ This readme contains the major steps to setup my Ubuntu Workstation. In the futu
   - Disable always show menu bar
 - Setup SSH keys for private Github/Gitlab company repos
 - Install ohmyzsh
-  - Install Antigen for zsh plugin manager
 - Add custom partial search history to ~/.inputrc
 - Instal pyenv for python management (python3 is pre-installed by default)
   - Using update-alternatives, I symlinked `python` to work `sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1`
