@@ -15,17 +15,12 @@ This readme contains the major steps to setup my Ubuntu Workstation. In the futu
 - GIF Recording Software - Built in Gnome with ctrl+shift+alt+R
 - Modify keyboard shorcuts
   - Change "Move window one monitor to the left/right/up/down to Ctrl+Super+X
+- Modify Multitasking setting, change Multi-Monitor to "Workspaces on all displays"
 - Modify "sudo visudo" to disable sudo password requirement
   - %sudo ALL=(ALL) NOPASSWD: ALL
 - DOTFILES
   - snap install of chezmoi
   - https://github.com/COValhalla/dotfiles
-
-# The below is only for X11, no wayland
-
-- Auto Move Windows extension can open applications in a specific workspace, no placement though
-- Setup devilspie2
-- Setup startup applications (vscode, Slack, Spotify, Signal) with sleep command for devilspie2
 
 3. Development/Coding
 
@@ -44,7 +39,7 @@ This readme contains the major steps to setup my Ubuntu Workstation. In the futu
 - Install ohmyzsh
 - Add custom partial search history to ~/.inputrc
 - Instal pyenv for python management (python3 is pre-installed by default)
-  - Using update-alternatives, I symlinked `python` to work `sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1`
+  - Add variable lines to ~/.zshrc
 
 4. Other Applications
 
@@ -60,6 +55,3 @@ This readme contains the major steps to setup my Ubuntu Workstation. In the futu
 
 - Terminal customization
   - History search up/down
-  - Modify to Mac copy/paste?
-  - Consistent copy/paste from Desktop to Terminal?
-- Key remapping (TODO) - keyd, kinto.sh are some options
