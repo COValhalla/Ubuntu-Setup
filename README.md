@@ -55,3 +55,4 @@ This readme contains the major steps to setup my Ubuntu Workstation. In the futu
 
 - Terminal customization
   - History search up/down
+  - Add `alias up='sudo apt update && sudo apt upgrade` to ~/.zshrc
