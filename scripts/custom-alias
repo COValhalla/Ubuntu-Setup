@@ -1,0 +1,19 @@
+# These to be added to ~/.zshrc or whatever shell
+
+#custom alias
+alias up='sudo apt update && sudo apt upgrade'
+
+#cursor dynamic alias
+function cursor() {
+    local app=$(ls -t /home/joevellella/Applications/cursor*.AppImage | head -n 1)
+    if [[ -x "$app" ]]; then
+        nohup "$app" "$@" &>/dev/null &
+        disown
+    else
+        echo "Cursor application not found."
+    fi
+}
+
+#headset mode switch alias
+alias btswitch='~/Documents/bluetooth-switch.sh'
+
