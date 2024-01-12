@@ -19,8 +19,11 @@ This readme contains the major steps to setup my Ubuntu Workstation. In the futu
 - Modify "sudo visudo" to disable sudo password requirement
   - %sudo ALL=(ALL) NOPASSWD: ALL
 - DOTFILES
+
   - snap install of chezmoi
   - https://github.com/COValhalla/dotfiles
+
+- Disable scroll wheel/middle click paste https://unix.stackexchange.com/questions/24330/how-can-i-turn-off-middle-mouse-button-paste-functionality-in-all-programs/277488#277488
 
 3. Development/Coding
 
