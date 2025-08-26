@@ -1,0 +1,117 @@
+# macOS Custom Aliases and Functions
+# Add these to your ~/.zshrc or ~/.bash_profile
+
+# System aliases
+alias ll='ls -la'
+alias la='ls -la'
+alias l='ls -l'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# Homebrew aliases
+alias brewup='brew update && brew upgrade'
+alias brewclean='brew cleanup'
+alias brewinfo='brew list --versions'
+
+# Quick edit aliases
+alias zshconfig='vim ~/.zshrc'
+alias bashconfig='vim ~/.bash_profile'
+alias reload='source ~/.zshrc'
+
+# Network utilities
+alias myip='curl -s ipinfo.io/ip'
+alias localip='ipconfig getifaddr en0'
+alias localip-wifi='ipconfig getifaddr en0'
+alias localip-ethernet='ipconfig getifaddr en1'
+
+# System utilities
+alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder'
+alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder'
+alias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+alias cleanup='sudo purge'
+
+# Directory shortcuts
+alias desktop='cd ~/Desktop'
+alias downloads='cd ~/Downloads'
+alias documents='cd ~/Documents'
+alias code='cd ~/code'
+
+# Git aliases (if using git)
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git pull'
+alias gb='git branch'
+alias gco='git checkout'
+
+# macOS specific functions
+
+# Function to open current directory in Finder
+function finder() {
+    if [ $# -eq 0 ]; then
+        open .
+    else
+        open "$@"
+    fi
+}
+
+# Function to extract various archive types
+function extract() {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar xvjf $1    ;;
+            *.tar.gz)    tar xvzf $1    ;;
+            *.bz2)       bunzip2 $1     ;;
+            *.rar)       unrar x $1     ;;
+            *.gz)        gunzip $1      ;;
+            *.tar)       tar xvf $1     ;;
+            *.tbz2)      tar xvjf $1    ;;
+            *.tgz)       tar xvzf $1    ;;
+            *.zip)       unzip $1       ;;
+            *.Z)         uncompress $1  ;;
+            *.7z)        7z x $1        ;;
+            *)           echo "don't know how to extract '$1'..." ;;
+        esac
+    else
+        echo "'$1' is not a valid file!"
+    fi
+}
+
+# Function to create a directory and cd into it
+function mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
+# Function to find process and kill it
+function killprocess() {
+    ps aux | grep "$1" | grep -v grep | awk '{print $2}' | xargs kill -9
+}
+
+# Function to get weather (requires curl)
+function weather() {
+    curl -s "wttr.in/$1"
+}
+
+# Cursor function for macOS (if using Cursor)
+function cursor() {
+    if [ -d "/Applications/Cursor.app" ]; then
+        open -a "Cursor" "$@"
+    else
+        echo "Cursor application not found in /Applications/"
+    fi
+}
+
+# CleanShot X quick screenshot function
+function screenshot() {
+    if [ "$1" = "area" ]; then
+        osascript -e 'tell application "CleanShot X" to capture area'
+    elif [ "$1" = "window" ]; then
+        osascript -e 'tell application "CleanShot X" to capture window'
+    elif [ "$1" = "fullscreen" ]; then
+        osascript -e 'tell application "CleanShot X" to capture screen'
+    else
+        echo "Usage: screenshot [area|window|fullscreen]"
+    fi
+}

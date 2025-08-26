@@ -1,115 +1,35 @@
-# Ubuntu Workstation Setup
+# Multi-OS Workstation Setup
 
-This document outlines the steps to set up an Ubuntu workstation. These steps will eventually be automated using Ansible.
+This repository contains setup guides for configuring development workstations across different operating systems. Each guide provides step-by-step instructions to get your system configured with essential tools, applications, and settings.
 
-## 1. Browser Setup
+## Operating Systems
 
-- **Bitwarden & Firefox:**
-  - Download and sign in to Bitwarden.
-  - Log in to your Firefox account to sync extensions and favorites.
-- **Kagi Search Engine:**
-  - Log in to Kagi and set it as your default search engine.
+- **[Ubuntu Setup Guide](docs/Ubuntu-Setup.md)** - Complete setup instructions for Ubuntu workstations
+- **[macOS Setup Guide](docs/macOS-Setup.md)** - Complete setup instructions for macOS workstations
 
-## 2. Ubuntu Defaults
+## Quick Links
 
-- **Appearance:**
-  - Toggle dark mode in "Appearance" settings.
-- **Docking Station & Monitors:**
-  - Configure docking station and monitor setups.
-- **Window Snapping:**
-  - Install Gnome Shell Extension Manager:
-    ```bash
-    sudo apt update && sudo apt install gnome-shell-extension-manager
-    ```
-  - Install Awesome Tiles extension using Gnome Shell Extension Manager.
-- **GIF Recording:**
-  - Use the built-in Gnome screen recorder (Ctrl+Shift+Alt+R).
-- **Keyboard Shortcuts:**
-  - Modify keyboard shortcuts in "Settings" -> "Keyboard" -> "Shortcuts":
-    - Change "Move window one monitor to the left/right/up/down" to `Ctrl+Super+X`.
-- **Multitasking:**
-  - Modify multitasking settings in "Settings" -> "Multitasking":
-    - Change "Multi-Monitor" to "Workspaces on all displays".
-- **Disable Sudo Password:**
-  - Edit sudoers file to disable password requirement (use with caution):
-    ```bash
-    sudo visudo
-    ```
-    - Add the following line to the end of the file:
-      ```
-      %sudo ALL=(ALL) NOPASSWD: ALL
-      ```
-      **Warning:** Disabling sudo password prompts can reduce system security.
-- **Dotfiles:**
-  - Install Chezmoi:
-    ```bash
-    snap install chezmoi
-    ```
-  - Clone dotfiles repository:
-    ```bash
-    chezmoi init https://github.com/COValhalla/dotfiles
-    ```
-- **Disable Middle Click Paste:**
-  - Disable scroll wheel/middle click paste:
-    ```bash
-    gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
-    ```
-    Refer to: [https://unix.stackexchange.com/questions/24330/how-can-i-turn-off-middle-mouse-button-paste-functionality-in-all-programs/277488#277488](https://unix.stackexchange.com/questions/24330/how-can-i-turn-off-middle-mouse-button-paste-functionality-in-all-programs/277488#277488)
+## Script Organization
 
-## 3. Development/Coding
+### Ubuntu Scripts
+- [Custom Aliases](scripts/ubuntu/custom-alias) - Shell aliases and functions for Ubuntu
+- [Bluetooth Switch](scripts/ubuntu/bluetooth-switch.sh) - Bluetooth headset mode switcher
 
-- **APT Packages:**
-  Install essential APT packages:
-  ```bash
-  sudo apt update && sudo apt install git vim curl zsh python3-pip
-  ```
-- **VSCode:**
-  - Install VSCode and sign in with your GitHub account to sync extensions and settings.
-- **Slack:**
-  - Install Slack.
-  - Enable Dark Mode in Slack preferences.
-  - Disable "Always show menu bar" in Slack preferences.
-- **SSH Keys:**
-  - Set up SSH keys for private GitHub/GitLab company repositories.
-- **Oh My Zsh:**
-  - Install Oh My Zsh:
-    ```bash
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    ```
-- **Zsh History Search:**
-  - Add custom partial search history to `~/.inputrc`:
-    ```bash
-    echo '"\e[A": history-search-backward' >> ~/.inputrc
-    echo '"\e[B": history-search-forward' >> ~/.inputrc
-    ```
-- **Pyenv:**
-  - Install Pyenv for Python management:
-    ```bash
-    curl https://pyenv.run | bash
-    ```
-  - Add pyenv variables to `~/.zshrc`:
-    ```bash
-    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-    echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-    echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-    ```
+### macOS Scripts  
+- [Custom Aliases](scripts/macos/custom-aliases) - Shell aliases and functions for macOS
+- [Homebrew Setup](scripts/macos/setup-homebrew.sh) - Automated development environment setup
 
-## 4. Other Applications
+## Additional Files
 
-- VLC (set as default in "Default Applications")
-- Spotify
-- Signal
-- Discord
-- Notion
-- Miro
-- Asana
-- BalenaEtcher
+- [Ubuntu Fresh Install Notes](Ubuntu-Fresh.md) - Temporary notes for Ubuntu 24
 
-## TODOs:
+## Getting Started
 
-- Terminal customization
-  - History search up/down (already implemented in Zsh History Search section)
-  - Add `alias up='sudo apt update && sudo apt upgrade'` to `~/.zshrc`:
-    ```bash
-    echo 'alias up="sudo apt update && sudo apt upgrade"' >> ~/.zshrc
-    ```
+1. Choose your operating system guide from the links above
+2. Follow the step-by-step instructions in the corresponding setup guide  
+3. Use the scripts in the `scripts/` directory to automate common tasks
+4. Customize the aliases and functions to fit your workflow
+
+## Contributing
+
+Feel free to suggest improvements or add configurations for additional operating systems!
