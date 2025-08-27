@@ -140,9 +140,47 @@ This document outlines the steps to set up a macOS workstation for development a
 - **Discord** - Gaming and community chat
   - Download from App Store or [discord.com](https://discord.com/download)
 
+### Window Management
+- **Rectangle** - Window snapping and management tool
+  - **Installation via Homebrew (Recommended):**
+    ```bash
+    brew install --cask rectangle
+    ```
+  - **Alternative: Download directly**
+    - Download from [rectangleapp.com](https://rectangleapp.com/)
+    - Drag to Applications folder
+  
+  - **Setup & Configuration:**
+    - Launch Rectangle and grant Accessibility permissions when prompted
+    - Go to System Preferences → Security & Privacy → Privacy → Accessibility
+    - Add Rectangle to the list of allowed applications
+    - Configure keyboard shortcuts in Rectangle preferences:
+      - **Left Half:** `⌘ + ←` (Cmd + Left Arrow)
+      - **Right Half:** `⌘ + →` (Cmd + Right Arrow) 
+      - **Maximize:** `⌘ + ⌥ + F` (Cmd + Option + F)
+      - **Center:** `⌘ + ⌥ + C` (Cmd + Option + C)
+      - **Top Half:** `⌘ + ↑` (Cmd + Up Arrow)
+      - **Bottom Half:** `⌘ + ↓` (Cmd + Down Arrow)
+    
+  - **Pro Tips:**
+    - Enable "Launch on login" in Rectangle preferences
+    - Try different snap areas by dragging windows to screen edges
+    - Use keyboard shortcuts for precise window positioning
+    - Works great with multiple displays in shared workspace mode
+
 ### Utilities
 - **BalenaEtcher** - USB/SD card imaging tool
   - Download from [balena.io/etcher](https://www.balena.io/etcher/)
+
+- **VNC Viewer** - Remote desktop access
+  - **Option 1: Built-in Screen Sharing (Recommended)**
+    - macOS includes built-in VNC client accessed via Finder (`Cmd + K`)
+    - Connect using: `vnc://hostname:port` or `vnc://username@hostname:port`
+  - **Option 2: RealVNC Viewer**
+    - Install via Homebrew: `brew install --cask vnc-viewer`
+    - Or download from [realvnc.com](https://www.realvnc.com/en/connect/download/viewer/)
+  - **Option 3: TigerVNC Viewer**
+    - Install via Homebrew: `brew install --cask tigervnc-viewer`
 
 ## 7. macOS-Specific Customizations
 
@@ -185,10 +223,39 @@ alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall 
 alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder'
 ```
 
+
+### Multi-Display Workspace Configuration
+
+By default, macOS creates separate workspaces (Spaces) for each display, which can be inconvenient when you want all your displays to show the same desktop and applications.
+
+#### Configure Displays to Share Same Workspace
+
+1. **Disable Separate Spaces for Displays:**
+   - Go to System Preferences → Mission Control
+   - **Uncheck "Displays have separate Spaces"**
+   - Click "OK" if prompted about requiring a logout
+
+2. **Log out and log back in:**
+   - The setting requires a logout/login to take effect
+   - Go to Apple Menu → Log Out [Your Name]
+   - Log back in to your account
+
+3. **Verify Configuration:**
+   - After logging back in, all displays should share the same desktop
+   - Applications can now span across multiple displays
+   - The Dock and menu bar behavior will be unified across displays
+
+#### Benefits of Shared Workspace
+- **Unified Desktop:** All displays show the same desktop and background
+- **Application Flexibility:** Applications can be moved freely between displays
+- **Consistent Dock:** Dock appears on the display where your cursor is located
+- **Menu Bar:** Menu bar appears on the primary display or follows cursor (depending on settings)
+
 ## TODOs:
 
 - [ ] Automate application installation using Homebrew Cask
 - [ ] Create automated dotfiles setup script
-- [ ] Add window management tool recommendations (Rectangle, Magnet)
+- [x] Add window management tool recommendations (Rectangle, Magnet)
+- [x] Configure displays to share same workspace (disable separate Spaces)
 - [ ] Document macOS keyboard shortcuts customization
 - [ ] Add instructions for Time Machine backup setup

@@ -43,14 +43,14 @@ echo "📱 Installing useful GUI applications..."
 
 # Install GUI applications via Homebrew Cask
 brew install --cask \
-    visual-studio-code \
+    cursor \
     slack \
     discord \
     spotify \
     vlc \
-    notion \
     signal \
-    balenaetcher
+    balenaetcher \
+    vnc-viewer
 
 echo "✅ Setup complete!"
 echo ""
